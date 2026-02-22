@@ -20,7 +20,7 @@ export const comparePassword = async (password, hashedPassword) => {
     const isMatch = await bcrypt.compare(password, hashedPassword);
     return isMatch;
   } catch (error) {
-    throw new Error("Error comparing password");
+    throw error; // Propagate the original error
   }
 };
 
@@ -37,8 +37,7 @@ export const generateToken = (email, id) => {
     return jwt.sign({ id, email }, process.env.JWT_SECRET, {
       expiresIn: process.env.JWT_EXPIRE,
     });
-  } catch {
-    if (!error.message) error.message = "fild to generate Token .";
-    next(error);
+  } catch (error) {
+    throw error; // Throw the error to be caught by the controller
   }
 };

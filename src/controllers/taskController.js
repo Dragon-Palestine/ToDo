@@ -1,5 +1,4 @@
 import Task from "../models/taskModel.js";
-import User from "../models/userModel.js";
 import mongoose from "mongoose";
 import { deleteTaskServic, updateTaskServic } from "../services/taskService.js";
 export const addTask = async (req, res, next) => {

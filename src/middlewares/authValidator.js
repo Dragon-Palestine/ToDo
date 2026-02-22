@@ -12,7 +12,7 @@ export const registerValidation = [
       const existingUser = await User.findOne({ email });
 
       if (existingUser) {
-        throw new Error("Email already is use");
+        throw new Error("Email already in use");
       }
 
       return true;

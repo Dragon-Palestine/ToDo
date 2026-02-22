@@ -15,28 +15,23 @@ import {
 } from "../middlewares/taskValidator.js";
 
 const router = express.Router();
+router.use(authMiddleware,autharizationMiddleWares);
 
-router.get("/list", authMiddleware, autharizationMiddleWares, getTasks);
+router.get("/list", getTasks);
 router.post(
   "/add",
-  authMiddleware,
-  autharizationMiddleWares,
   addTaskValidation,
   validate,
   addTask,
 );
 router.put(
   "/update/:id",
-  authMiddleware,
-  autharizationMiddleWares,
   updateTaskValidation,
   validate,
   updateTask,
 );
 router.delete(
   "/remove/:id",
-  authMiddleware,
-  autharizationMiddleWares,
   taskIdValidation,
   validate,
   deleteTask,
