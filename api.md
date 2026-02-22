@@ -26,6 +26,14 @@ All requests and responses are in JSON format.
     "password": "password123"
   }
   ```
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "message": "User logged in successfully",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  }
+  ```
 
 ## 📝 Tasks
 
@@ -33,7 +41,25 @@ All requests and responses are in JSON format.
 
 **`GET /api/tasks/list`**
 
-- **Description:** Retrieve all tasks for the logged-in user.
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "data": [
+      {
+        "_id": "64f8a...",
+        "title": "Task Title",
+        "description": "Task Description",
+        "address": "Task Location",
+        "completed": false,
+        "userId": "64f8b...",
+        "createdAt": "2023-09-06T12:00:00.000Z",
+        "updatedAt": "2023-09-06T12:00:00.000Z"
+      }
+    ],
+    "message": "Tasks retrieved successfully"
+  }
+  ```
 
 **`POST /api/tasks/add`**
 
